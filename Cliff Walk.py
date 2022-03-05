@@ -156,12 +156,7 @@ def qlearning(num_episodes = 500, gamma_discount = 1, alpha = 0.1, epsilon = 0.1
     return q_table, reward_cache, step_cache
     
 def plot_cumreward_normalized(reward_cache_qlearning, reward_cache_SARSA):
-    """
-    Visualizes the reward convergence
-    
-    Args:
-        reward_cache -- type(list) contains cumulative_reward
-    """
+
     cum_rewards_q = []
     rewards_mean = np.array(reward_cache_qlearning).mean()
     rewards_std = np.array(reward_cache_qlearning).std()
@@ -200,57 +195,6 @@ def plot_cumreward_normalized(reward_cache_qlearning, reward_cache_SARSA):
     plt.legend(loc='lower right', ncol=2, mode="expand", borderaxespad=0.)
     plt.show()
     
-def plot_number_steps(step_cache_qlearning, step_cache_SARSA):
-    """
-        Visualize number of steps taken
-    """    
-    cum_step_q = []
-    steps_mean = np.array(step_cache_qlearning).mean()
-    steps_std = np.array(step_cache_qlearning).std()
-    count = 0 # used to determine the batches
-    cur_step = 0 # accumulate reward for the batch
-    for cache in step_cache_qlearning:
-        count = count + 1
-        cur_step += cache
-        if(count == 10):
-            # normalize the sample
-            normalized_step = (cur_step - steps_mean)/steps_std
-            cum_step_q.append(normalized_step)
-            cur_step = 0
-            count = 0
-            
-    cum_step_SARSA = []
-    steps_mean = np.array(step_cache_SARSA).mean()
-    steps_std = np.array(step_cache_SARSA).std()
-    count = 0 # used to determine the batches
-    cur_step = 0 # accumulate reward for the batch
-    for cache in step_cache_SARSA:
-        count = count + 1
-        cur_step += cache
-        if(count == 10):
-            # normalize the sample
-            normalized_step = (cur_step - steps_mean)/steps_std
-            cum_step_SARSA.append(normalized_step)
-            cur_step = 0
-            count = 0      
-    # prepare the graph    
-    plt.plot(cum_step_q, label = "q_learning")
-    plt.plot(cum_step_SARSA, label = "SARSA")
-    plt.ylabel('Number of iterations')
-    plt.xlabel('Batches of Episodes (sample size 10) ')
-    plt.title("Q-Learning/SARSA Iteration number untill game ends")
-    plt.legend(loc='lower right', ncol=2, mode="expand", borderaxespad=0.)
-    plt.show()
-    
-
-def main():
-
-    q_table_SARSA, reward_cache_SARSA, step_cache_SARSA = sarsa()
-    q_table_qlearning, reward_cache_qlearning, step_cache_qlearning = qlearning()
-    plot_cumreward_normalized(reward_cache_qlearning,reward_cache_SARSA)
-    
-
-    
-if __name__ == "__main__":
-    # call main function to execute grid world
-    main()
+q_table_SARSA, reward_cache_SARSA, step_cache_SARSA = sarsa()
+q_table_qlearning, reward_cache_qlearning, step_cache_qlearning = qlearning()
+plot_cumreward_normalized(reward_cache_qlearning,reward_cache_SARSA)
