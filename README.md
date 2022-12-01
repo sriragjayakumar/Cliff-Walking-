@@ -1,2 +1,9 @@
 # Cliff-Walking-
-Re-implement in Python the results presented in Figure 6.4 of the Sutton &amp; Barto book comparing SARSA  and Q-learning in the cliff-walking task. Investigate the effect of choosing different values for the exploration  parameter    for  both  methods.  Present  your  code  and  results.  In  your  discussion  clearly  describe  the  main  difference between SARSA and Q-learning in relation to your findings.    Note: For this problem, use 𝛼 =0.1 and 𝛾 =1 for both algorithms. The "smoothing" that is mentioned in the  caption of Figure 6.4 is a result of 1) averaging over 10 runs, and 2) plotting a moving average over the last  10 episodes. 
+Implementing SARSA  and Q-learning in the cliff-walking task thereby investigate the effect of choosing different values for the exploration  parameter for  both  methods. 
+
+# How to Run tempDifference.py
+- Open the py file in any python IDE, click on run
+OR
+- open command prompt from file location and run "python /tempDifference.py"
+## Notes:-
+- User can change the value of epsilon parameter in Q-Leanring and SARSA methods.
