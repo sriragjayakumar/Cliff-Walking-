@@ -4,6 +4,6 @@ Implementing SARSA  and Q-learning in the cliff-walking task thereby investigate
 # How to Run tempDifference.py
 - Open the py file in any python IDE, click on run
 OR
-- open command prompt from file location and run "python /tempDifference.py"
+- open command prompt from file location and run "python /Cliff Walk.py"
 ## Notes:-
 - User can change the value of epsilon parameter in Q-Leanring and SARSA methods.
